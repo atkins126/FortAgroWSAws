@@ -23,8 +23,8 @@ type
     mlog: TMemo;
     FDConPG: TFDConnection;
     IdIPWatch1: TIdIPWatch;
-    lblTipoBase: TLabel;
     PgDriverLink: TFDPhysPgDriverLink;
+    lblTipoBase: TLabel;
     procedure FormShow(Sender: TObject);
     private
     function GetVersaoArq: string;
@@ -1214,6 +1214,42 @@ begin
      LBody := Req.Body<TJSONObject>;
     try
      LBodyRed:=dmPost.PostGenerico(dmPost.DetvazaooperacaoTable,LBody);
+     Res.Send(LBodyRed).Status(200)
+     except on ex:exception do
+     begin
+      mLog.Lines.Add(FormatDateTime('dd-mm-yyyy-hh:mm:ss',now)+' Erro :'+ex.Message);
+      Res.Send(tjsonobject.Create.AddPair('Mensagem', ex.Message)).Status(500);
+     end;
+    end;
+   end);
+
+   THorse.Post('/Pedidocompra',
+   procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+   var
+     LBody,LBodyRed: TJSONObject;
+   begin
+     mLog.Lines.Add(FormatDateTime('dd-mm-yyyy-hh:mm:ss',now)+' Post Pedido de Compras');
+     LBody := Req.Body<TJSONObject>;
+    try
+     LBodyRed:=dmPost.PostGenerico(dmPost.PedidocompraTable,LBody);
+     Res.Send(LBodyRed).Status(200)
+     except on ex:exception do
+     begin
+      mLog.Lines.Add(FormatDateTime('dd-mm-yyyy-hh:mm:ss',now)+' Erro :'+ex.Message);
+      Res.Send(tjsonobject.Create.AddPair('Mensagem', ex.Message)).Status(500);
+     end;
+    end;
+   end);
+
+   THorse.Post('/Pedidocompraitems',
+   procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+   var
+     LBody,LBodyRed: TJSONObject;
+   begin
+     mLog.Lines.Add(FormatDateTime('dd-mm-yyyy-hh:mm:ss',now)+' Post Pedido de Compras Itens');
+     LBody := Req.Body<TJSONObject>;
+    try
+     LBodyRed:=dmPost.PostGenerico(dmPost.PedidocompraitemsTable,LBody);
      Res.Send(LBodyRed).Status(200)
      except on ex:exception do
      begin

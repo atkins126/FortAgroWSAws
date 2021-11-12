@@ -164,7 +164,7 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_ExeOutput>E:\Projetos2021\Fortaleza\WSAws\Deploy\</DCC_ExeOutput>
+        <DCC_ExeOutput>E:\Projetos2021\Fortaleza\WSAws\FortAgroWSAws\Deploy</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>WSAws_Icon.ico</Icon_MainIcon>
