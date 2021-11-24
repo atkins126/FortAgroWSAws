@@ -26,6 +26,7 @@ type
     PgDriverLink: TFDPhysPgDriverLink;
     lblTipoBase: TLabel;
     procedure FormShow(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
     private
     function GetVersaoArq: string;
   public
@@ -45,6 +46,11 @@ implementation
 uses UDM, UdmPost;
 
 { TfrmPrincipal }
+
+procedure TfrmPrincipal.btnFecharClick(Sender: TObject);
+begin
+ Close;
+end;
 
 function TfrmPrincipal.ConectaPG: TJSONObject;
 var

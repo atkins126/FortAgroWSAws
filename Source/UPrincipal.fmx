@@ -2,8 +2,8 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   Caption = 'WS FortAgro'
-  ClientHeight = 380
-  ClientWidth = 588
+  ClientHeight = 408
+  ClientWidth = 640
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -12,7 +12,7 @@ object frmPrincipal: TfrmPrincipal
   object Rectangle1: TRectangle
     Align = Top
     Fill.Color = claBlack
-    Size.Width = 588.000000000000000000
+    Size.Width = 640.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
     object btnFechar: TImage
@@ -68,16 +68,17 @@ object frmPrincipal: TfrmPrincipal
       Margins.Left = 2.000000000000000000
       Margins.Top = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
-      Position.X = 553.000000000000000000
+      Position.X = 605.000000000000000000
       Position.Y = 3.000000000000000000
       Size.Width = 35.000000000000000000
       Size.Height = 19.000000000000000000
       Size.PlatformDefault = False
+      OnClick = btnFecharClick
     end
     object lblWS: TLabel
       Align = Client
       StyledSettings = [Family, Size, Style]
-      Size.Width = 551.000000000000000000
+      Size.Width = 603.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       TextSettings.FontColor = claWhite
@@ -89,25 +90,25 @@ object frmPrincipal: TfrmPrincipal
   object Rectangle2: TRectangle
     Align = Client
     Fill.Kind = None
-    Size.Width = 588.000000000000000000
-    Size.Height = 355.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 383.000000000000000000
     Size.PlatformDefault = False
     object mlog: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Align = Client
-      Size.Width = 588.000000000000000000
-      Size.Height = 355.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 383.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      Viewport.Width = 584.000000000000000000
-      Viewport.Height = 351.000000000000000000
+      Viewport.Width = 636.000000000000000000
+      Viewport.Height = 379.000000000000000000
       object lblTipoBase: TLabel
         Align = Client
         StyledSettings = [Family, FontColor]
         Opacity = 0.200000002980232200
-        Size.Width = 584.000000000000000000
-        Size.Height = 351.000000000000000000
+        Size.Width = 636.000000000000000000
+        Size.Height = 379.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 72.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -126,7 +127,6 @@ object frmPrincipal: TfrmPrincipal
         'Server=ls-b5a9416631646d3b59e028d836b45022097f4ea8.cpim1c0ocmlf.' +
         'us-east-1.rds.amazonaws.com'
       'DriverID=PG')
-    Connected = True
     LoginPrompt = False
     Left = 72
     Top = 80
@@ -138,7 +138,6 @@ object frmPrincipal: TfrmPrincipal
     Top = 112
   end
   object PgDriverLink: TFDPhysPgDriverLink
-    VendorLib = 'E:\Projetos2021\Fortaleza\Deploy\DrivesDB\libpq_32.dll'
     Left = 72
     Top = 136
   end
