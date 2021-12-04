@@ -233,7 +233,7 @@ object dm: Tdm
     Connection = frmPrincipal.FDConPG
     SQL.Strings = (
       'SELECT * FROM orcamentos'
-      'WHERE syncfaz=0')
+      'where syncfaz=0 and status=3')
     Left = 496
     Top = 10
   end
@@ -241,7 +241,9 @@ object dm: Tdm
     Connection = frmPrincipal.FDConPG
     SQL.Strings = (
       'SELECT * FROM orcamentositens'
-      'WHERE syncfaz=0')
+      
+        'where syncfaz =0 and idorcamento in(select id from orcamentos o ' +
+        'where status=3)')
     Left = 494
     Top = 69
   end

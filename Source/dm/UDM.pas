@@ -64,6 +64,7 @@ type
   private
     function GetDataSetAsJSON(DataSet: TDataSet): TJSONObject;
   public
+    procedure InsereStatusInicialPedido(idPedido:string);
     function RetornaTipoBase:string;
     function PostMudaFlagSync(obj: TJSONObject): TJSONObject;
     function GetGeneric(DataSet: TDataSet):TJSONObject;
@@ -106,6 +107,26 @@ begin
  DataSet.Close;
  DataSet.Open;
  Result := GetDataSetAsJSON(DataSet);
+end;
+
+procedure Tdm.InsereStatusInicialPedido(idPedido: string);
+var
+  vQry:TFDQuery;
+begin
+ vQry:=TFDQuery.Create(nil);
+ vQry.Connection := frmPrincipal.FDConPG;
+ with vQry, vQry.SQL do
+ begin
+   Clear;
+   Add('select * from pedidostatus where idpedido='+idPedido);
+   Open;
+   if vQry.IsEmpty then
+   begin
+    Add('INSERT INTO pedidostatus(idusuario,idpedido, idstatus)values(');
+    Add('1,'+idPedido+',1);');
+    ExecSQL;
+   end;
+ end;
 end;
 
 function Tdm.PostMudaFlagSync(obj: TJSONObject): TJSONObject;

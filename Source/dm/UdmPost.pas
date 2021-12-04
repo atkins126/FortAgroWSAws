@@ -62,7 +62,7 @@ implementation
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
-uses UPrincipal;
+uses UPrincipal, UDM;
 
 {$R *.dfm}
 
@@ -115,6 +115,9 @@ begin
       DataSet.FieldByName(vField).AsString     := vQry.FieldByName(vField).AsString;
      end;
       DataSet.ApplyUpdates(-1);
+      if DataSet.Name='PedidocompraTable' then
+       dm.InsereStatusInicialPedido(vQry.FieldByName('id').AsString);
+
       frmPrincipal.mlog.Lines.add('Atualizado com Sucesso '+
        StringReplace(DataSet.Name,'Table','',[rfReplaceAll])+
        ' ID: '+vQry.FieldByName('id').AsString);
